@@ -34,6 +34,10 @@
 #include "targets/t-deck-plus/config.h"
 #elif defined(RG_TARGET_VMU_S3)
 #include "targets/vmu-s3/config.h"
+#elif defined(RG_TARGET_ESP32_S3_ORTHOBOY)
+#include "targets/esp32-s3-orthoboy/config.h"
+#elif defined(RG_TARGET_ESP32_WROVER)
+#include "targets/esp32-wrover/config.h"
 #else
 #warning "No target defined. Defaulting to ODROID-GO."
 #include "targets/odroid-go/config.h"
