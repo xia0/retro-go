@@ -51,7 +51,7 @@
 #define RG_GPIO_SND_I2S_BCK         GPIO_NUM_5
 #define RG_GPIO_SND_I2S_WS          GPIO_NUM_6
 #define RG_GPIO_SND_I2S_DATA        GPIO_NUM_4
-// #define RG_GPIO_SND_AMP_ENABLE      GPIO_NUM_18
+#define RG_GPIO_SND_AMP_ENABLE      GPIO_NUM_3
 
 
 /****************************************************************************
@@ -59,7 +59,7 @@
  ****************************************************************************/
 #define RG_SCREEN_DRIVER            0   // 0 = ILI9341/ST7789
 #define RG_SCREEN_HOST              SPI2_HOST
-#define RG_SCREEN_SPEED             SPI_MASTER_FREQ_40M
+#define RG_SCREEN_SPEED             SPI_MASTER_FREQ_20M
 #define RG_SCREEN_BACKLIGHT         1
 #define RG_SCREEN_WIDTH             240
 #define RG_SCREEN_HEIGHT            320
@@ -141,3 +141,8 @@
 #define RG_BATTERY_ADC_CHANNEL      ADC_CHANNEL_2
 #define RG_BATTERY_CALC_PERCENT(raw) (((raw) * 2.f - 3500.f) / (4200.f - 3500.f) * 100.f)
 #define RG_BATTERY_CALC_VOLTAGE(raw) ((raw) * 2.f * 0.001f)
+
+// Updater
+#define RG_UPDATER_ENABLE               1
+#define RG_UPDATER_APPLICATION          RG_APP_FACTORY
+#define RG_UPDATER_DOWNLOAD_LOCATION    RG_STORAGE_ROOT "/orthoboy/firmware"
