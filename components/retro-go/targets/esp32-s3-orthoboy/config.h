@@ -63,6 +63,9 @@
 #define RG_SCREEN_BACKLIGHT         1
 #define RG_SCREEN_WIDTH             240
 #define RG_SCREEN_HEIGHT            320
+// red pcb lcd v1.1 rotation=5 rgb_bgr=1 and use ILI9341_CMD(0x21); to invert
+// red pcb lcd v1.2 rotation=0 rgb_bgr=1
+// blue pcb lcd st7789 rotation=5(pins top), 3(pins bottom) rgb_bgr=1 and use ILI9341_CMD(0x21); to invert
 #define RG_SCREEN_ROTATION          5   // Possible values are 0-7 (you'll have to experiment)
 #define RG_SCREEN_RGB_BGR           1   // Possible values are 0-1 (change if colors are bad)
 #define RG_SCREEN_PIXEL_FORMAT      0   // Possible values are 0=565_BE, 1=565_LE
@@ -87,7 +90,7 @@
     ILI9341_CMD(0x26, 0x01);                 /* Gamma curve selected */                                          \
     ILI9341_CMD(0xE0, 0x0F, 0x31, 0x2B, 0x0C, 0x0E, 0x08, 0x4E, 0xF1, 0x37, 0x07, 0x10, 0x03, 0x0E, 0x09, 0x00); \
     ILI9341_CMD(0xE1, 0x00, 0x0E, 0x14, 0x03, 0x11, 0x07, 0x31, 0xC1, 0x48, 0x08, 0x0F, 0x0C, 0x31, 0x36, 0x0F); \
-    ILI9341_CMD(0x21); /* red displays showing v1.1 require colour inversion */
+    ILI9341_CMD(0x21); /* red pcb displays showing v1.1 require colour inversion */
 #define RG_SCREEN_DEINIT() \
     /* Nothing to do */
 #define RG_GPIO_LCD_MISO            GPIO_NUM_NC
@@ -118,11 +121,8 @@
     {RG_KEY_LEFT,   .num = GPIO_NUM_21, .pullup = 1, .level = 0},\
     {RG_KEY_RIGHT,  .num = GPIO_NUM_14, .pullup = 1, .level = 0},\
     {RG_KEY_SELECT, .num = GPIO_NUM_45, .pullup = 1, .level = 0},\
-    {RG_KEY_SELECT, .num = GPIO_NUM_46, .pullup = 1, .level = 0},\
     {RG_KEY_START,  .num = GPIO_NUM_43, .pullup = 1, .level = 0},\
-    {RG_KEY_START,  .num = GPIO_NUM_39, .pullup = 1, .level = 0},\
     {RG_KEY_MENU,   .num = GPIO_NUM_1,  .pullup = 1, .level = 0},\
-    {RG_KEY_MENU,   .num = GPIO_NUM_38, .pullup = 1, .level = 0},\
     {RG_KEY_OPTION, .num = GPIO_NUM_2,  .pullup = 1, .level = 0},\
     {RG_KEY_A,      .num = GPIO_NUM_8,  .pullup = 1, .level = 0},\
     {RG_KEY_B,      .num = GPIO_NUM_18, .pullup = 1, .level = 0},\
@@ -130,6 +130,9 @@
     {RG_KEY_Y,      .num = GPIO_NUM_16, .pullup = 1, .level = 0},\
     {RG_KEY_L,      .num = GPIO_NUM_15, .pullup = 1, .level = 0},\
     {RG_KEY_R,      .num = GPIO_NUM_7,  .pullup = 1, .level = 0},\
+    {RG_KEY_OPTION, .num = GPIO_NUM_46, .pullup = 1, .level = 0},\
+    {RG_KEY_MENU,   .num = GPIO_NUM_38, .pullup = 1, .level = 0},\
+    {RG_KEY_A,      .num = GPIO_NUM_39, .pullup = 1, .level = 0},\
 }
 
 
